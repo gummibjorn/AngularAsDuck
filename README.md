@@ -1,3 +1,3 @@
 # AngularAsDuck
 angular party
-WED2 Miniprojekt Eventveranstalltung
+WED2 Miniprojekt Eventveranstaltung
