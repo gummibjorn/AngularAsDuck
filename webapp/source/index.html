@@ -1,23 +1,25 @@
 <!doctype html>
 <html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<title>Lafete</title>
-	</head>
-	<body>
-		<div id="app">
-			<h2>Events</h2>
-      <ul data-ng-controller="EventListController">
+<head>
+    <meta charset="utf-8"/>
+    <title>Lafete</title>
+</head>
+<body>
+<div id="app">
+    <h2>Events</h2>
+    <ul data-ng-controller="EventListController">
         <li data-ng-repeat="event in events">
-          {{event.name}}
+            {{event.name}}
+            {{event.end}}
+            {{event.begin}}
         </li>
-      </ul>
-			<h3>API to use</h3>
-			<dl data-ng-init="apiRoutes = [{name:'events', url:'/api/events'}, {name:'event 1', url:'/api/events/1'}, {name:'guests of event 1', url:'/api/events/1/guests'}]">
-				<dt data-ng-repeat-start="apiRoute in apiRoutes" data-ng-bind="apiRoute.name"></dt>
-				<dd data-ng-repeat-end><a href="{{ apiRoute.url}}">{{apiRoute.url}}</a></dd>
-			</dl>
-		</div>
-   <script src="./libraries/require/require-js.min.js" data-main="./classes/main.js"></script>
-	<body>
+    </ul>
+    <h3>API to use</h3>
+    <dl data-ng-init="apiRoutes = [{name:'events', url:'/api/events'}, {name:'event 1', url:'/api/events/1'}, {name:'guests of event 1', url:'/api/events/1/guests'}]">
+        <dt data-ng-repeat-start="apiRoute in apiRoutes" data-ng-bind="apiRoute.name"></dt>
+        <dd data-ng-repeat-end><a href="{{ apiRoute.url}}">{{apiRoute.url}}</a></dd>
+    </dl>
+</div>
+<script src="./libraries/require/require-js.min.js" data-main="./classes/main.js"></script>
+<body>
 </html>
