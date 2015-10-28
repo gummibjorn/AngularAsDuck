@@ -13,7 +13,7 @@ define([], function(){
     this.guests = [];
 
     Object.defineProperty(this, "end", { 
-      get: function () { return this.times.get },
+      get: function () { return this.times.end },
       set: function(end) { this.times.end = end }
     }); 
 

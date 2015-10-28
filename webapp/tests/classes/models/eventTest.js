@@ -10,5 +10,13 @@ define(['app/models/event'], function(Event){
         expect(e.begin).toBe(1);
       });
     });
+
+    describe('property end', function(){
+      it('should be gettable and settable', function(){
+        e.end = 2;
+        expect(e.end).toBe(2);
+      });
+    });
+
   });
 });
