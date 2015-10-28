@@ -23,8 +23,12 @@ require.config({
 
 
 require(['libraries/jasmine-boot'], function () {
-	require(['tests/controllers/eventListControllerTest'], function(){
+  "use strict";
+	require([
+      'tests/controllers/eventListControllerTest',
+      'tests/models/eventTest',
+  ], function(){
 		//trigger Jasmine
 		window.onload();
-	})
+	});
 });
