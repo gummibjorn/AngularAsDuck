@@ -1,6 +1,7 @@
 define([], function () {
     return function ($scope, StorageService) {
-        $scope.events = StorageService.events;
+        this.scope = $scope;
+        this.scope.events = StorageService.events;
     }
 })
 

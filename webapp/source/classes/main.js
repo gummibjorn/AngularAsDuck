@@ -5,7 +5,6 @@ require.config({
   baseUrl: './',
   paths: {
     'frameworks/angular': 'frameworks/angular/angular.min',
-    'libraries/angularMocks': 'libraries/angular/angular-mocks',
     'app': 'classes'
   },
   // angular does not support async loading out of the box -> use the shim loader
@@ -13,10 +12,7 @@ require.config({
     'frameworks/angular': {
       exports: 'angular'
     },
-    'libraries/angularMocks':{
-        deps: ['frameworks/angular'],
-        exports: 'angular.mock'
-    }
+
   }
 });
 
