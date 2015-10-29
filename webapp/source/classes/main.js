@@ -4,7 +4,7 @@ require.config({
   // base url relative to the index.html
   baseUrl: './',
   paths: {
-    'frameworks/angular': 'frameworks/angular/angular.min',
+    'frameworks/angular': 'frameworks/angular/angular',
     'libraries/angularMocks': 'libraries/angular/angular-mocks',
     'app': 'classes'
   },
@@ -13,9 +13,8 @@ require.config({
     'frameworks/angular': {
       exports: 'angular'
     },
-    'libraries/angularMocks':{
-        deps: ['frameworks/angular'],
-        exports: 'angular.mock'
+    'libraries/angular/angular-route':{
+      deps: ['frameworks/angular']
     }
   }
 });
