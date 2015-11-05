@@ -3,6 +3,6 @@ define([], function () {
     this.scope = $scope;
     this.scope.events = StorageService.events;
   }
-})
+});
 
 

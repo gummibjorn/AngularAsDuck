@@ -1,8 +1,8 @@
-define([], function () {
+define(['app/services/uuidService'], function (UuidService) {
   "use strict"
 
   return function () {
-    this.id = '0'
+    this.id = UuidService.getRandomUuid();
     this.name = ''
     this.description = ''
     this.targetGroup = ''
