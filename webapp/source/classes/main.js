@@ -12,6 +12,9 @@ require.config({
     'frameworks/angular': {
       exports: 'angular'
     },
+    'libraries/angular/angular-route': {
+      deps: ['frameworks/angular']
+    }
   }
 });
 

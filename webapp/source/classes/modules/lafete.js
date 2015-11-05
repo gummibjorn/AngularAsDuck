@@ -1,5 +1,5 @@
 // declare dependency to angular (similar to import in java)
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'libraries/angular/angular-route'], function (Angular, EventListController, StorageService) {
+define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'libraries/angular/angular-route' ], function (Angular, EventListController, StorageService) {
 
   // Create new empty app/module named 'lafete'
   var Lafete = Angular.module('lafete', ['ngRoute']);
