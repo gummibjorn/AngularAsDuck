@@ -1,8 +1,9 @@
 define(['app/models/event'], function (Event) {
   "use strict"
   var EventFactory = {
-    newEvent: function (name, location, begin) {
-      var e = new Event();
+    newEvent: function (name, location, begin, id) {
+      id = id || null;
+      var e = new Event(id);
       e.name = name;
       e.location = location;
       e.begin = begin;

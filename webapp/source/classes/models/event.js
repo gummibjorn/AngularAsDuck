@@ -1,8 +1,12 @@
 define(['app/services/uuidService'], function (UuidService) {
   "use strict"
 
-  return function () {
-    this.id = UuidService.getRandomUuid();
+  return function (id) {
+    if (!id) {
+      this.id = UuidService.getRandomUuid();
+    } else {
+      this.id = id;
+    }
     this.name = ''
     this.description = ''
     this.targetGroup = ''
