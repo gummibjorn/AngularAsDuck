@@ -2,7 +2,6 @@
 <ul data-ng-controller="EventListController">
     <li data-ng-repeat="event in events">
         {{event.id}}
-        {{event.name}}
-        {{event.begin}}
+        <a data-ng-href="#/events/{{event.id}}"><p>{{event.name}}</p></a>
     </li>
 </ul>

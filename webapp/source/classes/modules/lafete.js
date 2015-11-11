@@ -1,5 +1,5 @@
 // declare dependency to angular (similar to import in java)
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/services/storageService', 'libraries/angular/angular-route' ], function (Angular, EventListController, StorageService) {
+define(['frameworks/angular', 'app/controllers/eventListController', 'app/controllers/detailViewController', 'app/services/storageService', 'libraries/angular/angular-route' ], function (Angular, EventListController, DetailViewController, StorageService) {
 
   // Create new empty app/module named 'lafete'
   var Lafete = Angular.module('lafete', ['ngRoute']);
@@ -11,6 +11,9 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/servic
   EventListController.$inject = ['$scope', 'StorageService'];
   Lafete.controller('EventListController', EventListController);
 
+  DetailViewController.$inject = ['$scope', '$routeParams', 'StorageService'];
+  Lafete.controller('DetailViewController', DetailViewController);
+
   Lafete.config(function ($routeProvider) {
     $routeProvider
       .when('/list', {
@@ -19,6 +22,10 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/servic
       })
       .when('/api', {
         templateUrl: 'views/api.html'
+      })
+      .when('/events/:id', {
+        controller: 'DetailViewController',
+        templateUrl: 'views/detail.html'
       })
       .otherwise({
         redirectTo: '/list'
