@@ -20,7 +20,8 @@
     "dojo"          : false,
 
     "predef"        : [  // Custom globals.
-        "define", "require" //requirejs
+        "define", "require", //requirejs
+        "describe", "it", "beforeEach", "expect" //jasmine
     ],
 
 
