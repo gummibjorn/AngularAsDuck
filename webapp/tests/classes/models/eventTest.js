@@ -1,14 +1,16 @@
-define(['app/models/event'], function (Event) {
+define(['app/models/event', 'tests/factories/eventFactory'], function (Event, EventFactory) {
   "use strict";
+  var e;
+
+  beforeEach(function () {
+    e = EventFactory.newEvent("TestLunch", "Testikon", new Date('2015-10-10T10:00:00.000Z'));
+  });
 
   describe('Event', function () {
-    var e = new Event();
 
-    describe('uuid of event', function(){
-      it('should have uuid', function(){
-        var regex = new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}');
-        expect(e.id).toMatch(regex);
-      });
+    it('should have uuid', function () {
+      var regex = new RegExp('[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}');
+      expect(e.id).toMatch(regex);
     });
 
     describe('property begin', function () {
