@@ -18,14 +18,14 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/contro
     $routeProvider
       .when('/list', {
         controller: 'EventListController',
-        templateUrl: 'views/list.html'
+        templateUrl: 'views/event/list.html'
       })
       .when('/api', {
         templateUrl: 'views/api.html'
       })
       .when('/events/:id', {
         controller: 'DetailViewController',
-        templateUrl: 'views/detail.html'
+        templateUrl: 'views/event/detail.html'
       })
       .otherwise({
         redirectTo: '/list'
