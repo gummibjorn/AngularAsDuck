@@ -5,6 +5,7 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/contro
   var Lafete = Angular.module('lafete', ['ngRoute']);
 
   //services
+  EventRepository.$inject = ['$http'];
   Lafete.service('EventRepository', EventRepository);
 
   //controllers

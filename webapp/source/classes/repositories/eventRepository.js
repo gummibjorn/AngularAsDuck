@@ -1,5 +1,10 @@
 define(['app/models/event'], function (Event) {
-  return function () {
+  return function ($http) {
+    this.urls = {
+      all: '/api/events',
+      get: '/api/events/{eventId}',
+      add: '/api/events'
+    }
 
     this.events = new (function () {
       var eventList = {};
@@ -19,9 +24,9 @@ define(['app/models/event'], function (Event) {
        *
        * @return Event[]
        */
-      this.all = function () {
-        return Object.keys(eventList).map(function (value, index) {
-          return eventList[value];
+      this.all = function (onSuccess) {
+        $http.get(this.urls.all).success(function(data){
+          onSuccess(data.events);
         });
       };
 
