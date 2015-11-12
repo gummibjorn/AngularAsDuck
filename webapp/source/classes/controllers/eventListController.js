@@ -2,7 +2,9 @@ define([], function () {
   "use strict"
   return function ($scope, EventRepository) {
     this.scope = $scope;
-    this.scope.events = EventRepository.events.all();
+    EventRepository.events.all(function(events){
+      this.scope.events = events;
+    }.bind(this));
   }
 });
 
