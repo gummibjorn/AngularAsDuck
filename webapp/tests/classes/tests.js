@@ -30,7 +30,7 @@ require(['libraries/jasmine-boot'], function () {
   require([
       'tests/controllers/eventListControllerTest',
       'tests/models/eventTest',
-      'tests/services/storageServiceTest'
+      'tests/repositories/eventRepositoryTest'
   ], function () {
     window.onload();
   })
