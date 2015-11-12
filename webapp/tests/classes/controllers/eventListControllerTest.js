@@ -1,15 +1,15 @@
-define(['app/controllers/eventListController', 'libraries/angularMocks', 'app/repositories/eventRepository', 'tests/factories/eventFactory'], function (EventListController, AngularMocks, StorageService, EventFactory) {
+define(['app/controllers/eventListController', 'libraries/angularMocks', 'app/repositories/eventRepository', 'tests/factories/eventFactory'], function (EventListController, AngularMocks, EventRepository, EventFactory) {
   'use strict';
 
   var eventListController;
 
   beforeEach(AngularMocks.inject(function ($rootScope) {
     var scope = $rootScope.$new();
-    var storageService = new StorageService();
+    var eventRepository = new EventRepository();
     EventFactory.createTestEvents().forEach(function(event){
-      storageService.events.add(event);
+      eventRepository.events.add(event);
     });
-    eventListController = new EventListController(scope, storageService);
+    eventListController = new EventListController(scope, eventRepository);
   }));
 
   describe('EventListController', function () {

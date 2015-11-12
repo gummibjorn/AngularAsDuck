@@ -1,8 +1,8 @@
 define([], function () {
   "use strict"
-  return function ($scope, StorageService) {
+  return function ($scope, EventRepository) {
     this.scope = $scope;
-    this.scope.events = StorageService.events.all();
+    this.scope.events = EventRepository.events.all();
   }
 });
 
