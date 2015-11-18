@@ -2,6 +2,8 @@ define([], function(){
   "use strict"
   return function($scope, $routeParams, EventRepository){
     this.scope = $scope;
-    this.scope.event = EventRepository.events.get($routeParams.id);
+    EventRepository.get($routeParams.id, function(event){
+      this.scope.event = event;
+    }.bind(this));
   }
 })

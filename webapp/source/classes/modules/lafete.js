@@ -1,5 +1,11 @@
 // declare dependency to angular (similar to import in java)
-define(['frameworks/angular', 'app/controllers/eventListController', 'app/controllers/detailViewController', 'app/repositories/eventRepository', 'libraries/angular/angular-route' ], function (Angular, EventListController, DetailViewController, EventRepository) {
+define(['frameworks/angular',
+    'app/controllers/eventListController',
+    'app/controllers/detailViewController',
+    'app/controllers/addEventController',
+    'app/repositories/eventRepository',
+    'libraries/angular/angular-route' ],
+function (Angular, EventListController, DetailViewController, AddEventController, EventRepository) {
 
   // Create new empty app/module named 'lafete'
   var Lafete = Angular.module('lafete', ['ngRoute']);
@@ -15,6 +21,9 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/contro
   DetailViewController.$inject = ['$scope', '$routeParams', 'EventRepository'];
   Lafete.controller('DetailViewController', DetailViewController);
 
+  AddEventController.$inject = ['$scope', '$location', 'EventRepository'];
+  Lafete.controller('AddEventController', AddEventController);
+
   Lafete.config(function ($routeProvider) {
     $routeProvider
       .when('/list', {
@@ -27,6 +36,10 @@ define(['frameworks/angular', 'app/controllers/eventListController', 'app/contro
       .when('/events/:id', {
         controller: 'DetailViewController',
         templateUrl: 'views/event/detail.html'
+      })
+      .when('/addEvent', {
+        controller: 'AddEventController',
+        templateUrl: 'views/event/addEvent.html'
       })
       .otherwise({
         redirectTo: '/list'

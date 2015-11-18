@@ -12,8 +12,10 @@ define(['app/models/event'], function (Event) {
       * @param string identifier
       * @return Event or null
       */
-    this.get = function (identifier) {
-      return null;
+    this.get = function (identifier, onSuccess) {
+      $http.get(this.urls.get.replace('{eventId}', identifier)).success(function(eventJson){
+        onSuccess(Event.createEventfromJson(eventJson));
+      });
     };
 
     /**
@@ -23,7 +25,10 @@ define(['app/models/event'], function (Event) {
       */
     this.all = function (onSuccess) {
       $http.get(this.urls.all).success(function(data){
-        onSuccess(data.events);
+        var events = data.events.map(function(eventJson){
+            return Event.createEventfromJson(eventJson);
+        });
+        onSuccess(events);
       });
     };
 
@@ -33,8 +38,10 @@ define(['app/models/event'], function (Event) {
       * @param Event event
       * @return boolean if added successfull
       */
-    this.add = function (event) {
-      return false;
+    this.add = function (event, onSuccess) {
+      $http.post(this.urls.add, event).success(function(){
+       onSuccess();
+      });
     };
 
   }
