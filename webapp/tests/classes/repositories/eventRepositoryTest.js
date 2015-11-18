@@ -13,8 +13,8 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
       event = EventFactory.newEvent("TestLunch", "Testikon", new Date('2015-10-10T10:00:00.000Z'), 5);
 
       $httpBackend.when('GET', eventRepository.urls.all).respond({
-        events: [{id:1, name: 'Dinner'}, {id: 2, name: 'Lunch'}]
-      })
+        events: [{id: 1, name: 'Dinner'}, {id: 2, name: 'Lunch'}]
+      });
     }));
 
     afterEach(function () {
@@ -42,7 +42,6 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
      });
      });*/
 
-
     describe('all()', function () {
       it('returns an Array', function () {
         var events = null;
@@ -58,8 +57,7 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
           events = eventList;
         });
         $httpBackend.flush();
-        var json = JSON.parse(events);
-        expect(json.events.length).toBe(2);
+        expect(events.length).toBe(2);
       });
     });
 

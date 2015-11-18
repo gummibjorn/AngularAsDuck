@@ -1,21 +1,29 @@
-define(['app/controllers/eventListController', 'libraries/angularMocks', 'app/repositories/eventRepository', 'tests/factories/eventFactory'], function (EventListController, AngularMocks, EventRepository, EventFactory) {
+define(['app/controllers/eventListController',
+  'libraries/angularMocks',
+  'app/repositories/eventRepository',
+  'tests/factories/eventFactory'],
+  function (EventListController, AngularMocks, EventRepository, EventFactory) {
   'use strict';
 
-  var eventListController;
+  var scope, eventRepository, $httpBackend;
 
-  beforeEach(AngularMocks.inject(function ($rootScope) {
-    var scope = $rootScope.$new();
-    var eventRepository = new EventRepository();
-    EventFactory.createTestEvents().forEach(function(event){
-      eventRepository.events.add(event);
-    });
-    eventListController = new EventListController(scope, eventRepository);
+  beforeEach(AngularMocks.inject(function ($injector) {
+      scope = $injector.get('$rootScope').$new();
+
+      var events = [{id: 1, name: 'Dinner'}, {id: 2, name: 'Lunch'}];
+
+      eventRepository = {
+        all: function(onSuccess){
+          onSuccess(events);
+        }
+      }
   }));
 
   describe('EventListController', function () {
     describe('property scope', function () {
       it('contains 3 events', function () {
-        expect(eventListController.scope.events.length).toBe(3);
+        var eventListController = new EventListController(scope, eventRepository);
+        expect(eventListController.scope.events.length).toBe(2);
       });
     });
   });
