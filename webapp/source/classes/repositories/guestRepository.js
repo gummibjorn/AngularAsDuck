@@ -6,12 +6,11 @@ define(['app/models/guest'], function (Guest) {
       add: '/api/events/{eventId}/guests'
     }
 
-
-    /*this.get = function (identifier, onSuccess) {
-      $http.get(this.urls.get.replace('{eventId}', identifier)).success(function(eventJson){
-        onSuccess(Event.createEventfromJson(eventJson));
+    this.get = function (eventId, guestId, onSuccess) {
+      $http.get(this.urls.get.replace('{eventId}', eventId).replace('{guestId}', guestId)).success(function(guestJson){
+        onSuccess(Guest.createFromJson(guestJson));
       });
-    };*/
+    };
 
     this.all = function (eventId, onSuccess) {
       $http.get(this.urls.all.replace('{eventId}', eventId)).success(function(data){
