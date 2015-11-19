@@ -43,21 +43,8 @@ define(['app/services/uuidService'], function (UuidService) {
     event.contributionsDescription = eventJson.contributionsDescription;
     event.maximalAmountOfGuests = eventJson.maximalAmountOfGuests;
     event.location = eventJson.location;
-    event.times = eventJson.times;
-    return event;
-  };
-
-  Event.createEventfromForm = function(formData){
-    var event = new Event();
-    event.name = formData.eventname;
-    event.description = formData.description;
-    event.targetGroup = formData.target;
-    event.location.name = formData.locationname;
-    event.location.street = formData.locationstreet;
-    event.location.zipCode = formData.locationplz;
-    event.location.city = formData.locationcity;
-    event.times.begin = new Date(formData.eventbegin);
-    event.times.end = new Date(formData.eventend);
+    event.times.begin = new Date(eventJson.times.begin);
+    event.times.end = new Date(eventJson.times.end);
     return event;
   };
 

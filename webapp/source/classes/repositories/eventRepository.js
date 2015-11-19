@@ -3,7 +3,8 @@ define(['app/models/event'], function (Event) {
     this.urls = {
       all: '/api/events',
       get: '/api/events/{eventId}',
-      add: '/api/events'
+      add: '/api/events',
+      update: '/api/events/{eventId}'
     }
 
     /**
@@ -43,6 +44,12 @@ define(['app/models/event'], function (Event) {
        onSuccess();
       });
     };
+
+    this.update = function (event, onSuccess) {
+      $http.post(this.urls.update.replace('{eventId}', event.id), event).success(function(){
+       onSuccess();
+      });
+    }
 
   }
 });

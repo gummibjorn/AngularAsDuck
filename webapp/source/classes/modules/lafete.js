@@ -5,6 +5,7 @@ define(['frameworks/angular',
     'app/controllers/showGuestController',
     'app/controllers/addEventController',
     'app/controllers/addGuestController',
+    'app/controllers/editEventController',
     'app/repositories/eventRepository',
     'app/repositories/guestRepository',
     'libraries/angular/angular-route'],
@@ -14,6 +15,7 @@ define(['frameworks/angular',
             ShowGuestController,
             AddEventController,
             AddGuestController,
+            EditEventController,
             EventRepository,
             GuestRepository) {
 
@@ -39,6 +41,9 @@ define(['frameworks/angular',
 
     AddEventController.$inject = ['$scope', '$location', 'EventRepository'];
     Lafete.controller('AddEventController', AddEventController);
+
+    EditEventController.$inject = ['$scope', '$routeParams', '$location', 'EventRepository'];
+    Lafete.controller('EditEventController', EditEventController);
 
     AddGuestController.$inject = ['$scope', '$routeParams', '$location', 'GuestRepository'];
     Lafete.controller('AddGuestController', AddGuestController);
@@ -68,10 +73,13 @@ define(['frameworks/angular',
           controller: 'ShowGuestController',
           templateUrl: 'views/event/detailGuest.html'
         })
+        .when('/events/:eventId/edit', {
+          controller: 'EditEventController',
+          templateUrl: 'views/event/addEvent.html'
+        })
         .otherwise({
           redirectTo: '/list'
         });
-
     });
 
     // export module to use it in other classes
