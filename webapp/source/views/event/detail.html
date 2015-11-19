@@ -1,1 +1,7 @@
 <p>{{event.name}}</p>
+<ul>
+    <li data-ng-repeat="guest in guests">
+        {{guest.name}}
+    </li>
+</ul>
+<a href="#/events/{{event.id}}/guests">Add new guest</a>

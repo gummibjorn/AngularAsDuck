@@ -15,6 +15,8 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
       $httpBackend.when('GET', eventRepository.urls.all).respond({
         events: [{id: 1, name: 'Dinner'}, {id: 2, name: 'Lunch'}]
       });
+
+      //TODO test addEvent!
     }));
 
     afterEach(function () {
@@ -51,6 +53,7 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
         $httpBackend.flush();
         expect(events).toEqual(jasmine.any(Array));
       });
+
       it('returns two Events', function () {
         var events = null;
         eventRepository.all(function (eventList) {

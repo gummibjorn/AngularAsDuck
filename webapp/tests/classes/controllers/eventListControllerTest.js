@@ -21,7 +21,7 @@ define(['app/controllers/eventListController',
 
   describe('EventListController', function () {
     describe('property scope', function () {
-      it('contains 3 events', function () {
+      it('contains 2 events', function () {
         var eventListController = new EventListController(scope, eventRepository);
         expect(eventListController.scope.events.length).toBe(2);
       });

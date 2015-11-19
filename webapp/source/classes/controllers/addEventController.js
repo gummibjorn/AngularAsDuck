@@ -5,7 +5,7 @@ define(['app/models/event'], function(Event){
     $scope.addEvent = function(){
       var event = Event.createEventfromForm($scope);
       EventRepository.add(event, function(){
-           $location.path('#/list')
+           $location.path('/list')
         }
       );
     };
