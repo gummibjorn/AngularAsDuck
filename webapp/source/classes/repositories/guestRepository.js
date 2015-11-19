@@ -12,6 +12,10 @@ define(['app/models/guest'], function (Guest) {
       });
     };
 
+    this.update = function(eventId, guestId, onSuccess){
+      //Update Guest
+    }
+
     this.all = function (eventId, onSuccess) {
       $http.get(this.urls.all.replace('{eventId}', eventId)).success(function(data){
         var guests = data.guests.map(function(guestJson){

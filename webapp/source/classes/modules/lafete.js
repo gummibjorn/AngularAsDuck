@@ -8,7 +8,14 @@ define(['frameworks/angular',
     'app/repositories/eventRepository',
     'app/repositories/guestRepository',
     'libraries/angular/angular-route'],
-  function (Angular, EventListController, DetailViewController, ShowGuestController, AddEventController, AddGuestController, EventRepository, GuestRepository) {
+  function (Angular,
+            EventListController,
+            DetailViewController,
+            ShowGuestController,
+            AddEventController,
+            AddGuestController,
+            EventRepository,
+            GuestRepository) {
 
     // Create new empty app/module named 'lafete'
     var Lafete = Angular.module('lafete', ['ngRoute']);
@@ -33,7 +40,7 @@ define(['frameworks/angular',
     AddEventController.$inject = ['$scope', '$location', 'EventRepository'];
     Lafete.controller('AddEventController', AddEventController);
 
-    AddGuestController.$inject = ['$scope','$routeParams', '$location', 'GuestRepository'];
+    AddGuestController.$inject = ['$scope', '$routeParams', '$location', 'GuestRepository'];
     Lafete.controller('AddGuestController', AddGuestController);
 
     Lafete.config(function ($routeProvider) {
