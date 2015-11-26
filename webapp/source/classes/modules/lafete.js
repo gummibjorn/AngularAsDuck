@@ -2,7 +2,6 @@
 define(['frameworks/angular',
     'app/controllers/eventListController',
     'app/controllers/detailViewController',
-    'app/controllers/showGuestController',
     'app/controllers/addEventController',
     'app/controllers/addGuestController',
     'app/controllers/editEventController',
@@ -13,7 +12,6 @@ define(['frameworks/angular',
   function (Angular,
             EventListController,
             DetailViewController,
-            ShowGuestController,
             AddEventController,
             AddGuestController,
             EditEventController,
@@ -37,9 +35,6 @@ define(['frameworks/angular',
 
     DetailViewController.$inject = ['$scope', '$routeParams', 'EventRepository', 'GuestRepository'];
     Lafete.controller('DetailViewController', DetailViewController);
-
-    ShowGuestController.$inject = ['$scope', '$routeParams', 'GuestRepository'];
-    Lafete.controller('ShowGuestController', ShowGuestController);
 
     AddEventController.$inject = ['$scope', '$location', 'EventRepository'];
     Lafete.controller('AddEventController', AddEventController);
@@ -73,10 +68,6 @@ define(['frameworks/angular',
         .when('/events/:eventId/guests', {
           controller: 'AddGuestController',
           templateUrl: 'views/event/addGuest.html'
-        })
-        .when('/events/:eventId/guests/:guestId', {
-          controller: 'ShowGuestController',
-          templateUrl: 'views/event/detailGuest.html'
         })
         .when('/events/:eventId/guests/:guestId/edit', {
           controller: 'EditGuestController',
