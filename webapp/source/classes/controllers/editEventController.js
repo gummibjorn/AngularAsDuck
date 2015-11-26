@@ -9,7 +9,7 @@ define(['app/models/event'], function(Event){
       $scope.saveEvent = function(){
         EventRepository.update(event, function(){
           //TODO redirect, notify user, whatever
-          console.log("HOORAY");
+          $location.path("/event" + event.id);
         });
       }
     });
