@@ -1,0 +1,34 @@
+*{
+  font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
+.events li, div.property{
+  width: 100%;
+  border-bottom: 1px solid #0288D1;
+}
+
+.header {
+  background: #0288D1;
+  color: white;
+  padding: 5px;
+}
+
+.header input[type="text"]{
+  font-size: 2em;
+}
+
+.header button{
+  font-size: 2em;
+}
+
+a{
+  color: #ffc107;
+}
+
+.guests span{
+  font-weight:bold;
+}
+
+.property p:first-child{
+  font-weight: bold;
+}

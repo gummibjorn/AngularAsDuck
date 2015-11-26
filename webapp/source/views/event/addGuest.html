@@ -1,8 +1,20 @@
-<label for="name">Name</label>
-<input ng-model="guest.name" type="text" id="name"></br>
-<label  for="contribution">Contribution</label>
-<input  ng-model="guest.contribution" type="text" id="contribution"></br>
-<label for="comment">Comment</label>
-<input  ng-model="guest.commment" type="text" id="comment"></br>
-<button type="button" ng-click="saveGuest()">{{saveText}}</button>
+<div class='header'>
+  <h2>{{event.name || 'Event'}} guest</h2>
+  <a href="#/addEvent">Add an event</a>
+</div>
+<div class='property'>
+  <p><label for="name">Name</label></p>
+  <input data-ng-model="guest.name" type="text" id="name"></br>
+</div>
+<div class='property'>
+  <p><label for="name">Contribution</label></p>
+  <input data-ng-model="guest.contribution" type="text" id="name"></br>
+</div>
+<div class='property'>
+  <p><label for="name">Comment</label></p>
+  <input data-ng-model="guest.comment" type="text" id="name"></br>
+</div>
+<div class='header'>
+  <button type="button" ng-click="saveGuest()">Add Guest</button>
+</div>
 

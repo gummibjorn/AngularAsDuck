@@ -1,8 +1,12 @@
-<h2>Events</h2>
-<ul>
-    <li data-ng-repeat="event in events">
-        {{event.id}}
-        <a data-ng-href="#/events/{{event.id}}"><p>{{event.name}}</p></a>
-    </li>
+<div class='header'>
+  <h2>Events</h2>
+  <a href="#/addEvent">Add an event</a>
+</div>
+<ul class='events'>
+  <li data-ng-repeat="event in events" data-ng-click="eventDetail(event.id)">
+    <p class='date'>{{event.times.begin | date: medium }} - {{event.times.end | date:medium}}</p>
+    <p>{{event.name}}</p>
+    <p>{{event.description}}</p>
+    <p>{{event.location.name}}</p>
+  </li>
 </ul>
-<a href="#/addEvent">Add new event</a>

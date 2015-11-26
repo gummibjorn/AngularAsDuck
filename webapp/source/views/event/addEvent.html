@@ -1,20 +1,43 @@
-<label for="eventname">Eventname</label>
-<input ng-model="event.name" type="text" id="eventname"></br>
-<label  for="description">Description</label>
-<input  ng-model="event.description" type="text" id="description"></br>
-<label for="targetGroup">Target Group</label>
-<input  ng-model="event.targetGroup" type="text" id="targetGroup"></br>
-<label  for="locationname">Location name</label>
-<input  ng-model="event.location.name" type="text" id="locationname"></br>
-<label for="locationstreet">Location street</label>
-<input ng-model="event.location.street" type="text" id="locationstreet"></br>
-<label for="locationplz">Location plz</label>
-<input ng-model="event.location.zipCode" type="text" id="locationplz"></br>
-<label for="locationcity">Location city</label>
-<input ng-model="event.location.city" type="text" id="locationcity"></br>
-<label for="eventbegin">Event begin</label>
-<input ng-model="event.times.begin" type="datetime-local" id="eventbegin"></br>
-<label for="eventend">Event end</label>
-<input ng-model="event.times.end" type="datetime-local" id="eventend"></br>
-<button type="button" ng-click="saveEvent()">{{saveText}}</button>
+<div class='header'>
+<input type="text" data-ng-model='event.name' placeholder='Event Name'/>
+</div>
+<div class='property'>
+  <p> <label for="eventbegin">Event begin</label> </p>
+  <input data-ng-model="event.times.begin" type="datetime-local" id="eventbegin">
+</div>
+<div class='property'>
+  <p><label for="eventend">Event end</label></p>
+  <input data-ng-model="event.times.end" type="datetime-local" id="eventend">
+</div>
+<div class='property'>
+  <p><label for="eventname">Eventname</label></p>
+  <input data-ng-model="event.name" type="text" id="eventname">
+</div>
+<div class='property'>
+  <p><label  for="description">Description</label></p>
+  <textarea data-ng-model="event.description" id="description"></textarea>
+</div>
+<div class='property'>
+  <p><label for="targetGroup">Target Group</label></p>
+  <input  data-ng-model="event.targetGroup" type="text" id="targetGroup">
+</div>
+<div class='property'>
+  <p><label  for="locationname">Location name</label></p>
+  <input  data-ng-model="event.location.name" type="text" id="locationname">
+</div>
+<div class='property'>
+  <p><label for="locationstreet">Location street</label></p>
+  <input data-ng-model="event.location.street" type="text" id="locationstreet">
+</div>
+<div class='property'>
+  <p><label for="locationplz">Location plz</label></p>
+  <input data-ng-model="event.location.zipCode" type="text" id="locationplz">
+</div>
+<div class='property'>
+  <p><label for="locationcity">Location city</label></p>
+  <input data-ng-model="event.location.city" type="text" id="locationcity">
+</div>
+<div class='header'>
+  <button type="button" data-ng-click="saveEvent()">{{saveText}}</button>
+</div>
 
