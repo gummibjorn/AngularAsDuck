@@ -1,4 +1,4 @@
-define(['app/models/event'], function(Event){
+define([], function(){
   "use strict";
   return function($scope, $routeParams, $location, EventRepository){
     this.scope = $scope;
@@ -9,7 +9,6 @@ define(['app/models/event'], function(Event){
       $scope.saveEvent = function(){
         EventRepository.update(event, function(){
           //TODO redirect, notify user, whatever
-          $location.path("/event" + event.id);
         });
       }
     });

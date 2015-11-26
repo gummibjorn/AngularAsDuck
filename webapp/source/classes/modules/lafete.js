@@ -6,6 +6,7 @@ define(['frameworks/angular',
     'app/controllers/addEventController',
     'app/controllers/addGuestController',
     'app/controllers/editEventController',
+    'app/controllers/editGuestController',
     'app/repositories/eventRepository',
     'app/repositories/guestRepository',
     'libraries/angular/angular-route'],
@@ -16,6 +17,7 @@ define(['frameworks/angular',
             AddEventController,
             AddGuestController,
             EditEventController,
+            EditGuestController,
             EventRepository,
             GuestRepository) {
 
@@ -45,6 +47,9 @@ define(['frameworks/angular',
     EditEventController.$inject = ['$scope', '$routeParams', '$location', 'EventRepository'];
     Lafete.controller('EditEventController', EditEventController);
 
+    EditGuestController.$inject = ['$scope', '$routeParams', '$location', 'GuestRepository'];
+    Lafete.controller('EditGuestController', EditGuestController);
+
     AddGuestController.$inject = ['$scope', '$routeParams', '$location', 'GuestRepository'];
     Lafete.controller('AddGuestController', AddGuestController);
 
@@ -72,6 +77,10 @@ define(['frameworks/angular',
         .when('/events/:eventId/guests/:guestId', {
           controller: 'ShowGuestController',
           templateUrl: 'views/event/detailGuest.html'
+        })
+        .when('/events/:eventId/guests/:guestId/edit', {
+          controller: 'EditGuestController',
+          templateUrl: 'views/event/addGuest.html'
         })
         .when('/events/:eventId/edit', {
           controller: 'EditEventController',

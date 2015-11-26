@@ -3,7 +3,8 @@ define(['app/models/guest'], function (Guest) {
     this.urls = {
       all: '/api/events/{eventId}/guests',
       get: '/api/events/{eventId}/guests/{guestId}',
-      add: '/api/events/{eventId}/guests'
+      add: '/api/events/{eventId}/guests',
+      update: '/api/events/{eventId}/guests/{guestId}'
     }
 
     this.get = function (eventId, guestId, onSuccess) {
@@ -12,8 +13,10 @@ define(['app/models/guest'], function (Guest) {
       });
     };
 
-    this.update = function(eventId, guestId, onSuccess){
-      //Update Guest
+    this.update = function(eventId, guest, onSuccess){
+      $http.post(this.urls.update.replace('{eventId}', eventId).replace('{guestId}', guest.id), guest).success(function(){
+       onSuccess();
+      });
     }
 
     this.all = function (eventId, onSuccess) {
