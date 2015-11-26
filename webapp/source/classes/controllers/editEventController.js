@@ -8,7 +8,7 @@ define([], function(){
       $scope.saveText = "Save";
       $scope.saveEvent = function(){
         EventRepository.update(event, function(){
-          //TODO redirect, notify user, whatever
+          $location.path("/events/" + event.id);
         });
       }
     });

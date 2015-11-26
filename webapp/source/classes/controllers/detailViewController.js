@@ -9,5 +9,6 @@ define([], function(){
     GuestRepository.all($routeParams.eventId, function(guests){
       this.scope.guests = guests;
     }.bind(this));
+
   }
 })

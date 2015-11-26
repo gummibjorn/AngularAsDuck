@@ -9,7 +9,7 @@ define([], function(){
       $scope.saveText = "Save";
       $scope.saveGuest = function(){
         GuestRepository.update(eventId, guest, function(){
-          //TODO redirect, notify user, whatever
+          $location.path("/events/" + eventId);
         });
       }
     });

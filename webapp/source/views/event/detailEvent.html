@@ -31,7 +31,7 @@
     <li data-ng-repeat="guest in guests">
       <p>
         <span>{{guest.name}}</span>
-        <a href='#' data-ng-click="editGuest(event.id, guest.id)">Edit</a>
+        <a href="#/events/{{event.id}}/guests/{{guest.id}}/edit">Edit</a>
       </p>
       <p>Comment: {{guest.comment || 'none'}}</p>
       <p>Contribution: {{guest.contribution || 'none'}}</p>

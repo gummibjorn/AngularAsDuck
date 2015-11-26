@@ -1,6 +1,5 @@
 <div class='header'>
-  <h2>{{event.name || 'Event'}} guest</h2>
-  <a href="#/addEvent">Add an event</a>
+  <h2>{{guest.name || 'Guest'}}</h2>
 </div>
 <div class='property'>
   <p><label for="name">Name</label></p>
@@ -15,6 +14,6 @@
   <input data-ng-model="guest.comment" type="text" id="name"></br>
 </div>
 <div class='header'>
-  <button type="button" ng-click="saveGuest()">Add Guest</button>
+  <button type="button" ng-click="saveGuest()">{{saveText}}</button>
 </div>
 

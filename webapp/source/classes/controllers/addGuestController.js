@@ -3,7 +3,8 @@ define(['app/models/guest'], function (Guest) {
   return function ($scope, $routeParams, $location, GuestRepository) {
     this.scope = $scope;
     $scope.guest = new Guest();
-    $scope.addGuest = function () {
+    $scope.saveText = "Add Guest"
+    $scope.saveGuest = function () {
       var eventId = $routeParams.eventId;
       GuestRepository.add(eventId, $scope.guest, function () {
           $location.path("/events/" + eventId);
