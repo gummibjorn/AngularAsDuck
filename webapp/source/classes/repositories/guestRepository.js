@@ -24,6 +24,11 @@ define(['app/models/guest'], function (Guest) {
         var guests = data.guests.map(function(guestJson){
           return Guest.createFromJson(guestJson);
         });
+        guests = guests.filter(function(guest){
+          if(!guest.canceled){
+            return guest;
+          }
+        });
         onSuccess(guests);
       });
     };
