@@ -30,15 +30,9 @@ define(['app/models/event'], function (Event) {
             return Event.createEventfromJson(eventJson);
         });
         onSuccess(events);
-      });
+      })
     };
 
-
-    /**
-      * Add event if not already in list
-      * @param Event event
-      * @return boolean if added successfull
-      */
     this.add = function (event, onSuccess) {
       $http.post(this.urls.add, event).success(function(){
        onSuccess();

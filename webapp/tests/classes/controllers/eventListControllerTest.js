@@ -10,7 +10,7 @@ define(['app/controllers/eventListController',
   beforeEach(AngularMocks.inject(function ($injector) {
       scope = $injector.get('$rootScope').$new();
 
-      var events = [{id: 1, name: 'Dinner'}, {id: 2, name: 'Lunch'}];
+      var events = EventFactory.createTestEvents();
 
       eventRepository = {
         all: function(onSuccess){
@@ -23,7 +23,11 @@ define(['app/controllers/eventListController',
     describe('property scope', function () {
       it('contains 2 events', function () {
         var eventListController = new EventListController(scope,location, eventRepository);
-        expect(eventListController.scope.events.length).toBe(2);
+        expect(eventListController.scope.events.length).toBe(3);
+      });
+      it('location is Rapperswil of first event', function () {
+        var eventListController = new EventListController(scope,location, eventRepository);
+        expect(eventListController.scope.events[0].location.city).toBe("Rapperswil");
       });
     });
   });

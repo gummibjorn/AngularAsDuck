@@ -10,7 +10,42 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
 
       eventRepository = new EventRepository($http);
 
-      event = EventFactory.newEvent("TestLunch", "Testikon", new Date('2015-10-10T10:00:00.000Z'), 5);
+      var events = [];
+
+      $httpBackend.when('POST', '/api/events').respond(
+        //TODO
+      );
+
+      $httpBackend.when('GET', '/api/events/12').respond(404, "Non existing");
+
+      $httpBackend.when('GET', '/api/events/2').respond(
+        {
+          "id": 2,
+          "name": "Dinner",
+          "description": "Mitarbeiterdinner der HSR",
+          "targetGroup": "HSR Mitarbeiter",
+          "contributionsDescription": null,
+          "location": {
+            "name": "HSR",
+            "street": "Oberseestrasse",
+            "plz": 8640,
+            "city": "Rapperswil"
+          },
+          "times": {
+            "begin": "2015-11-20T18:00:00.000Z",
+            "end": "2011-11-20T21:00:00.000Z"
+          },
+          "guests": [
+            {
+              "id": 3,
+              "name": "F. Meier",
+              "contribution": null,
+              "comment": null,
+              "canceled": false
+            }
+          ]
+        }
+      );
 
       $httpBackend.when('GET', eventRepository.urls.all).respond(
         {
@@ -77,8 +112,6 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
           ]
         }
       );
-
-      //TODO test addEvent!
     }));
 
     afterEach(function () {
@@ -86,25 +119,29 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
       $httpBackend.verifyNoOutstandingRequest();
     });
 
-    /*describe('get()', function() {
-     beforeEach(function() {
-     eventRepository.events.add(event);
-     });
+    describe('get()', function () {
+      describe('by object id', function () {
+        it('returns the object', function () {
+          var repo_event = null;
+          eventRepository.get(2, function (event) {
+            repo_event = event;
+          });
+          $httpBackend.flush();
+          expect(repo_event.description).toBe("Mitarbeiterdinner der HSR");
+        });
+      });
 
-     describe('by object id', function() {
-     it('returns the object', function() {
-     var e = eventRepository.events.get(event.id)
-     expect(e).toBe(event);
-     });
-     });
-
-     describe('by inexistent object id', function() {
-     it('returns null', function() {
-     var e = eventRepository.events.get("hans");
-     expect(e).toBe(null);
-     });
-     });
-     });*/
+      describe('by inexistent object id', function () {
+        it('returns null', function () {
+          var repo_event = null;
+          eventRepository.get(12, function (event) {
+            repo_event = event;
+          });
+          $httpBackend.flush();
+          expect(repo_event).toBe(null);
+        });
+      });
+    });
 
     describe('all()', function () {
       it('returns an Array', function () {
@@ -126,33 +163,11 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
       });
     });
 
-
-    /*describe('add()', function() {
-     it('inserts element', function() {
-     var length = eventRepository.events.all().length;
-     var success = eventRepository.events.add(event);
-     expect(success).toBe(true);
-     expect(eventRepository.events.all().length).toBe(length+1);
-     });
-
-     describe('same element again', function() {
-     var length;
-
-     beforeEach(function() {
-     eventRepository.events.add(event);
-     length = eventRepository.events.all().length;
-     });
-
-     it('doesn\'t affect repository size', function() {
-     var success = eventRepository.events.add(event);
-     expect(success).toBe(false);
-     });
-
-     it('returns false', function() {
-     var success = eventRepository.events.add(event);
-     expect(eventRepository.events.all().length).toBe(length);
-     });
-     });
-     });*/
+    describe('add()', function(){
+        //TODO
+    });
+    describe('update()', function(){
+        //TODO
+    });
   });
 });
