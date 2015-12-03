@@ -12,9 +12,71 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
 
       event = EventFactory.newEvent("TestLunch", "Testikon", new Date('2015-10-10T10:00:00.000Z'), 5);
 
-      $httpBackend.when('GET', eventRepository.urls.all).respond({
-        events: [{id: 1, name: 'Dinner'}, {id: 2, name: 'Lunch'}]
-      });
+      $httpBackend.when('GET', eventRepository.urls.all).respond(
+        {
+          "events": [
+            {
+              "id": 1,
+              "name": "HSR-Party",
+              "description": "Party an der HSR",
+              "targetGroup": "Studenten",
+              "contributionsDescription": "Kuchen",
+              "location": {
+                "name": "HSR",
+                "street": "Oberseestrasse",
+                "plz": 8640,
+                "city": "Rapperswil"
+              },
+              "times": {
+                "begin": "2015-11-15T19:00:00.000Z",
+                "end": "2011-11-16T03:00:00.000Z"
+              },
+              "guests": [
+                {
+                  "id": 1,
+                  "name": "Michael",
+                  "contribution": "Schoggi-Kuchen",
+                  "comment": "Bin sicher zu früh",
+                  "canceled": false
+                },
+                {
+                  "id": 2,
+                  "name": "Hans",
+                  "contribution": "Hotdog-Cake",
+                  "comment": null,
+                  "canceled": false
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "name": "Dinner",
+              "description": "Mitarbeiterdinner der HSR",
+              "targetGroup": "HSR Mitarbeiter",
+              "contributionsDescription": null,
+              "location": {
+                "name": "HSR",
+                "street": "Oberseestrasse",
+                "plz": 8640,
+                "city": "Rapperswil"
+              },
+              "times": {
+                "begin": "2015-11-20T18:00:00.000Z",
+                "end": "2011-11-20T21:00:00.000Z"
+              },
+              "guests": [
+                {
+                  "id": 3,
+                  "name": "F. Meier",
+                  "contribution": null,
+                  "comment": null,
+                  "canceled": false
+                }
+              ]
+            }
+          ]
+        }
+      );
 
       //TODO test addEvent!
     }));

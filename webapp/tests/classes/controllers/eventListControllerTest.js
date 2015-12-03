@@ -22,7 +22,7 @@ define(['app/controllers/eventListController',
   describe('EventListController', function () {
     describe('property scope', function () {
       it('contains 2 events', function () {
-        var eventListController = new EventListController(scope, eventRepository);
+        var eventListController = new EventListController(scope,location, eventRepository);
         expect(eventListController.scope.events.length).toBe(2);
       });
     });
