@@ -1,7 +1,7 @@
 define(['app/models/guest', 'app/repositories/guestRepository', 'libraries/angularMocks'], function (Guest, GuestRepository, AngularMocks) {
   'use strict';
 
-  fdescribe('GuestRepository', function(){
+  describe('GuestRepository', function(){
     var repo, $http, $httpBackend;
     var hansJson = '{"id":99,"name":"Hans","contribution":"Kekse","comment":"Blub","canceled":false}';
     var hans = Guest.createFromJson({"id":99,"name":"Hans","contribution":"Kekse","comment":"Blub","canceled":false});
