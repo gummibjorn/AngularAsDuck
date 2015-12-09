@@ -21,7 +21,7 @@
 
     "predef"        : [  // Custom globals.
         "define", "require", //requirejs
-        "describe", "it", "beforeEach", "expect" //jasmine
+        "describe", "it", "beforeEach", "expect", "afterEach" //jasmine
     ],
 
 
