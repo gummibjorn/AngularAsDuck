@@ -2,7 +2,7 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
   'use strict';
 
   describe('EventRepository test suite', function () {
-    var event, eventRepository, $http, $httpBackend;
+    var eventRepository, $http, $httpBackend;
 
     beforeEach(AngularMocks.inject(function ($injector) {
       $http = $injector.get('$http');
@@ -10,13 +10,7 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
 
       eventRepository = new EventRepository($http);
 
-      var events = [];
-
-      $httpBackend.when('POST', '/api/events').respond(
-        //TODO
-      );
-
-      $httpBackend.when('GET', '/api/events/12').respond(404, "Non existing");
+      $httpBackend.when('GET', '/api/events/12').respond(404, 'non existing');
 
       $httpBackend.when('GET', '/api/events/2').respond(
         {
@@ -163,11 +157,32 @@ define(['app/models/event', 'app/repositories/eventRepository', 'tests/factories
       });
     });
 
-    describe('add()', function(){
-        //TODO
+    describe('add()', function () {
+      it('adds an event', function () {
+        var event = EventFactory.newEvent('Lunch', {city: 'Rapperswil'}, new Date('2015-04-05T16:00:00.000Z'));
+        $httpBackend.expectPOST('/api/events', event).respond(200, '');
+
+        eventRepository.add(event, function () {
+        });
+        $httpBackend.flush();
+      });
     });
-    describe('update()', function(){
-        //TODO
+
+    describe('update()', function () {
+      it('updates an event', function () {
+        var repo_event = null;
+        eventRepository.get(2, function (event) {
+          repo_event = event;
+        });
+        $httpBackend.flush();
+        repo_event.comment = 'hans has no idea';
+
+        $httpBackend.expectPOST('/api/events/2', repo_event).respond(200, '');
+
+        eventRepository.update(repo_event, function () {
+        });
+        $httpBackend.flush();
+      });
     });
   });
 });
