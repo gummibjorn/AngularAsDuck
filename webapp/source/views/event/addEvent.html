@@ -1,5 +1,6 @@
+<form>
 <div class='header'>
-<input type="text" data-ng-model='event.name' placeholder='Event Name'/>
+<input type="text" data-ng-model='event.name' placeholder='Event Name' required/>
 </div>
 <div class='property'>
   <p> <label for="eventbegin">Event begin</label> </p>
@@ -27,13 +28,14 @@
 </div>
 <div class='property'>
   <p><label for="locationplz">Location plz</label></p>
-  <input data-ng-model="event.location.zipCode" type="text" id="locationplz">
+  <input data-ng-model="event.location.zipCode" type="number" id="locationplz">
 </div>
 <div class='property'>
   <p><label for="locationcity">Location city</label></p>
   <input data-ng-model="event.location.city" type="text" id="locationcity">
 </div>
 <div class='header'>
-  <button type="button" data-ng-click="saveEvent()">{{saveText}}</button>
+  <button type="submit" data-ng-click="saveEvent()">{{saveText}}</button>
 </div>
+</form>
 
